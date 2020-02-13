@@ -12,29 +12,27 @@ import turtle
 
 # Defining a method to collect recipient information.
 
-def recipient_info():
+def recipient_info(length, width):
     name = (input("Name: "))
     adr = (input("Street Address: "))
     city = (input("City: "))
     state = (input("State: "))
-    zip = (input("Zip Code: "))
-
+    zipCode = (input("Zip Code: "))
+    turtle.pendown()
     turtle.write(name, font = ("Times New Roman", 12, "normal"))
     turtle.penup()
     turtle.left(180)
     turtle.forward(15)
     turtle.write(adr, font = ("Times New Roman", 12, "normal"))
     turtle.forward(15)
-    turtle.write(city + ", " + state + ", " + zip,
-
+    turtle.write(city + ", " + state + ", " + zipCode,
     font = ("Times New Roman", 12, "normal"))
-
-
 
 # Defining a method to collect the return address.
 
-def return_info():
+def return_info(length, width):
     turtle.left(90)
+    turtle.forward(length / 2)
     name = (input("Name: "))
     adr = (input("Street Address: "))
     city = (input("City: "))
@@ -45,7 +43,7 @@ def return_info():
     turtle.forward(15)
     turtle.write(adr, font = ("Times New Roman", 8, "normal"))
     turtle.forward(15)
-    turtle.write(city + ", " + state + ", " + zip,
+    turtle.write(city + ", " + state + ", " + zipCode,
     font = ("Times New Roman", 8, "normal"))
 
 # Defining a function to draw the sun stamp.
@@ -62,61 +60,6 @@ def sun_stamp():
     turtle.forward(90)
     turtle.left(90)
     turtle.forward(100)
-    turtle.end_fill()
-    turtle.left(180)
-    turtle.penup()
-    turtle.forward(50)
-    turtle.right(90)
-    turtle.forward(45)
-    turtle.pendown()
-    turtle.begin_fill()
-    turtle.fillcolor("yellow")
-    turtle.circle(22)
-    turtle.end_fill()
-    turtle.hideturtle()
-
-#  Defining a function to draw the music note stamp.
-
-def music_note_stamp():
-    turtle.begin_fill()
-    turtle.fillcolor("violet")
-
-    # Drawing the stamp outline.
-    turtle.forward(90)
-    turtle.left(90)
-    turtle.forward(100)
-    turtle.left(90)
-    turtle.forward(90)
-    turtle.left(90)
-    turtle.forward(100)
-    turtle.end_fill()
-    turtle.left(180)
-
-    # Drawing the music note head.
-    turtle.penup()
-    turtle.forward(12)
-    turtle.right(90)
-    turtle.forward(45)
-    turtle.pendown()
-
-    turtle.begin_fill()
-    turtle.fillcolor("black")
-    turtle.circle(22)
-    turtle.end_fill()
-
-    # Drawing the music note stem.
-    turtle.begin_fill()
-    turtle.fillcolor("black")
-    turtle.left(90)
-    turtle.forward(5)
-    turtle.right(90)
-    turtle.forward(16)
-    turtle.left(90)
-    turtle.forward(80)
-    turtle.right(90)
-    turtle.forward(10)
-    turtle.right(90)
-    turtle.forward(80)
     turtle.right(90)
     turtle.forward(10)
     turtle.end_fill()
@@ -127,7 +70,7 @@ def main():
 
     #turtle.speed("slowest")
 
-# Prompting the user for their envelope dimensions and color; Draws the envelope.
+    # Prompting the user for their envelope dimensions and color; Draws the envelope.
 
     print("This program will help you to complete the back side of your envelope so that it can be mailed")
     print("Let's get started.\n")
@@ -169,8 +112,6 @@ def main():
         print("The Envelope Wizard will now exit.")
         print("Have a great day!")
         exit()
-    
-    
 
     turtle.begin_fill()
     turtle.forward(length)
@@ -182,10 +123,10 @@ def main():
     turtle.forward(width)
     turtle.end_fill()
 
-    recipient_info()
+    print("Please follow the below prompts to provide the recipient's address.\n")
+    recipient_info(length, width)
 
     # Moving the turtle back to the origin so that we can compute the location for the return address.
-
     turtle.setposition(0,0)
     turtle.left(180)
     turtle.forward(width - 25)
@@ -193,7 +134,7 @@ def main():
     turtle.forward(25)
 
     print("Please follow the below prompts to provide the return address.\n")
-    return_info() #turtle facing down after this
+    return_info(length, width) #turtle facing down after this
 
     # Moving the turtle to the upper right corner to draw the stamp.
     turtle.forward(35)
