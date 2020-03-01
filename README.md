@@ -10,6 +10,7 @@ A simple text-based mail envelope wizard that allows the user to select envelope
 ## Turtle Garden: A Simple Game
 A trivial game that implements some basic boundary detection. The user can press the 'c' key at any time, and the turtle will drop a cookie at it's current location!
 
-## Spelling Quiz App 
+## Fireworks Display
+This fun little program uses simple loops and random values to create a fireworks show. 
 
 
