@@ -49,5 +49,5 @@ def trail():
 def main():
     for i in range(0,10):
         trail()
-    input()
+    #input() Used when program executed in VS Code
 main()
