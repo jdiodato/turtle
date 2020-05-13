@@ -9,25 +9,15 @@ import turtle, random, time
 scn = turtle.Screen()
 scn.bgcolor("green")
 scn.setup(600, 600)
-scn.title("Snake!")
-
-wall = turtle.Turtle()
-wall.speed(0)
-wall.pensize(3)
-wall.penup()
-wall.setpos(-285,290)
-wall.pendown()
-
-for i in range(4):
-    wall.forward(570)
-    wall.right(90)
-
-wall.hideturtle()
+scn.title("Snake! by @joe_diodato")
 
 head = turtle.Turtle()
 head.shape("square")
 head.speed(1)
-head.penup()
+head.penup() 
+
+global direction
+direction = ""
 
 # seg = turtle.Turtle()
 # seg.shape("square")
@@ -35,16 +25,24 @@ head.penup()
 # seg.forward(40)
 
 def up():
-    head.setheading(90)
+    direction = "north"
+    y = head.ycor()
+    head.sety(y + 1000)
 
 def down():
-    head.setheading(270)
+    direction = "south"
+    y = head.ycor()
+    head.sety(y - 1000)
 
 def left():
-    head.setheading(180)
+    direction = "west"
+    x = head.xcor()
+    head.setx(x - 1000)
 
 def right():
-    head.setheading(0)
+    direction = "east"
+    x = head.xcor()
+    head.setx(x + 1000)
 
 '''
 A function to randomly generate fruit on the screen. 
@@ -56,7 +54,7 @@ def fruit():
 A function to increase snake length when fruit is eaten
 '''
 
-def fruitEaten():
+def fruit_eaten():
     pass 
 
 
@@ -64,7 +62,7 @@ def fruitEaten():
 Game over functionality
 '''
 
-def gameOver():
+def game():
     pass 
 
 '''
@@ -92,13 +90,14 @@ scn.onkeypress(left, "a")
 scn.onkeypress(right, "d")
 
 
-def movement():
-    head.forward(20)
-    time.sleep(0.05)
-    movement()
+#def movement():
+    
+    #head.forward(20)
+    #time.sleep(0.05)
+    #movement()
 
 
-movement()
+#movement()
 
 
 
